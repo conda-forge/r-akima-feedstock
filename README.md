@@ -14,14 +14,16 @@ Summary: Several cubic spline interpolation methods of H. Akima for irregular an
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-akima-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-akima-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-akima-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-akima-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-akima-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-akima-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-akima-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-akima-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-akima-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-akima-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-akima-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-akima-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-akima/badges/version.svg)](https://anaconda.org/conda-forge/r-akima)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-akima/badges/downloads.svg)](https://anaconda.org/conda-forge/r-akima)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--akima-green.svg)](https://anaconda.org/conda-forge/r-akima) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-akima.svg)](https://anaconda.org/conda-forge/r-akima) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-akima.svg)](https://anaconda.org/conda-forge/r-akima) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-akima.svg)](https://anaconda.org/conda-forge/r-akima) |
 
 Installing r-akima
 ==================
