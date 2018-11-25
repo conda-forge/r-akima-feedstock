@@ -16,23 +16,20 @@ source:
 
 build:
   number: 1001
-  skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 requirements:
   build:
-    - r-base
-    - r-sp
     - posix                # [win]
     - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
-
+    - {{ compiler('c') }}  # [not win]
+  host:
+    - r-base
+    - r-sp
   run:
     - r-base
     - r-sp
-    - libgcc  # [not win]
 
 test:
   commands:
