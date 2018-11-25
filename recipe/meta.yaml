@@ -22,10 +22,8 @@ build:
 requirements:
   build:
     - posix                # [win]
-    - {{ compiler('fortran') }}        # [unix]
-    - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
   host:
     - r-base
     - r-sp
