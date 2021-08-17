@@ -1,4 +1,4 @@
-{% set version = "0.6-2.1" %}
+{% set version = "0.6-2.2" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,10 +12,10 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/akima_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/akima/akima_{{ version }}.tar.gz
-  sha256: e27f2d1adfb8debad5279e389b012bb484184a79eee3583eba4608696e24d820
+  sha256: deefc9ff82f78e68b7333c2fc88bd23863da9919493f2b73658044436f6b8742
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
