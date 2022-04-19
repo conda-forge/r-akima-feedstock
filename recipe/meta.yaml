@@ -1,5 +1,4 @@
-{% set version = "0.6-2.3" %}
-
+{% set version = "0.6-3.3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,34 +7,46 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: akima_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/akima_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/akima/akima_{{ version }}.tar.gz
-  sha256: 3b9b180c4298fb2e96f04ec686dd31753901542496743d81694ea01cac506a43
+    - {{ cran_mirror }}/src/contrib/akima_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/akima/akima_{{ version }}.tar.gz
+  sha256: 69cbb88079f98905736322bb2fe2a6a58091f0f3c0fdc9a407d8fdd48160d175
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
     - lib/
+
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('fortran') }}  # [not win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('fortran') }}        # [not win]
     - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{ compiler('c') }}  # [not win]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}sed               # [win]
+    - {{ posix }}grep              # [win]
+    - {{ posix }}autoconf
+    - {{ posix }}automake          # [not win]
+    - {{ posix }}automake-wrapper  # [win]
+    - {{ posix }}pkg-config
+    - {{ posix }}make
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-sp
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
     - r-sp
 
 test:
   commands:
-    - $R -e "library('akima')"  # [not win]
+    - $R -e "library('akima')"           # [not win]
     - "\"%R%\" -e \"library('akima')\""  # [win]
 
 about:
@@ -44,7 +55,8 @@ about:
   summary: 'Several cubic spline interpolation methods of H. Akima for irregular and regular gridded data are available through this package, both for the bivariate case (irregular data: ACM 761, regular data: ACM 760) and univariate case (ACM 433 and ACM 697). Linear interpolation of irregular gridded data is also covered
     by reusing D. J. Renkas triangulation code which is part of Akimas Fortran code. A bilinear interpolator for regular grids was also added for comparison with the bicubic interpolator on regular grids.'
   license_family: OTHER
-  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  license_file:
+    - {{ environ["RECIPE_DIR"] }}/LICENSE
 
 extra:
   recipe-maintainers:
