@@ -1,4 +1,4 @@
-{% set version = "0.6-3.4" %}
+{% set version = "0.6-3.6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/akima_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/akima/akima_{{ version }}.tar.gz
-  sha256: 95657592a81d2e3628cb054b60127827ae64e65c58b77d059aa510bc6781ad3e
+  sha256: c8447c47c4c7d43e50807d637b49efa8aa9dff5919915b61fcf61950859db6c8
 
 build:
-  number: 3
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
